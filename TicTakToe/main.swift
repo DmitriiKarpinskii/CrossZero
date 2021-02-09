@@ -18,8 +18,6 @@ struct TicTakToe {
         let sumSecondHorizont = field[3].rawValue + field[4].rawValue + field[5].rawValue
         let sumThirtyHorizont = field[6].rawValue + field[7].rawValue + field[8].rawValue
         
-//        print(sumFirstHorizont,sumSecondHorizont,sumThirtyHorizont)
-        
         if sumFirstHorizont == 15 || sumSecondHorizont == 15 || sumThirtyHorizont == 15 {
             print("Победа ноликов по горизонтали")
             return true
@@ -44,7 +42,6 @@ struct TicTakToe {
         
         let sumMainDiagonal = field[0].rawValue + field[4].rawValue + field[8].rawValue
         let sumSecondDiagonal = field[2].rawValue + field[4].rawValue + field[6].rawValue
-//        print(sumMainDiagonal, sumSecondDiagonal)
        
         if sumMainDiagonal == 15 || sumSecondDiagonal == 15 {
             print("Победа ноликов по диагонали")
@@ -53,7 +50,6 @@ struct TicTakToe {
             print("Победа крестиков по диагонали")
             return true
         }
-        
         
         //field.filter({$0.rawValue == 0}).count
         
@@ -85,7 +81,6 @@ struct TicTakToe {
             }
         }
     }
-    
     
     func printField() {
         var printLine : String = ""
@@ -124,9 +119,7 @@ struct TicTakToe {
 var tictaktoe = TicTakToe()
 tictaktoe.printField()
 
-
 var step = TicTakToe.Symbol.Cross
-
 
 while !tictaktoe.isGameOver() {
     print("Ход \(step == .Cross ? "Крестиков \u{274c}" : "Ноликов \u{2b55}" )")
@@ -136,10 +129,8 @@ while !tictaktoe.isGameOver() {
     print("Выберите колонку:")
     let x = Int(readLine() ?? "") ?? -1
     
-    
     tictaktoe[x,y] = step
     step = step == .Cross ? .Zero : .Cross
-    
     tictaktoe.printField()
 }
 
